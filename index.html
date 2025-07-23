@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Document</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1 style=" color: chocolate;font-size: 36px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-style: oblique;text-align: center;">Weekly-To-Do-List</h1> <!--App header with inline styling-->
+        <!--task form to key in your task-->
+        <div class ="input-area">
+            <input type="text" id="taskInput" placeholder="Please fill in task"required />
+            <!--seletion of optional day on drop-down-->
+    <select id="daySelect">
+      <option value="Monday">Monday</option>
+      <option value="Tuesday">Tuesday</option>
+      <option value="Wednesday">Wednesday</option>
+      <option value="Thursday">Thursday</option>
+      <option value="Friday">Friday</option>
+      <option value="Saturday">Saturday</option>
+      <option value="Sunday">Sunday</option>
+    </select>
+    <div>
+        <ul id="Monday"><li></li></ul>
+        <ul id="Tuesday"><li></li></ul>
+        <ul id="Wednesday"><li></li></li></ul>
+        <ul id="Thursday"><li></li></ul>
+        <ul id="Friday"><li></li></ul>
+        <ul id="Saturday"><li></li></ul>
+        <ul id="Sunday"><li></li></ul>
+    </div>
+    <button onclick="addActivity()">Add task</button>
+        </div>
+        <div class ="week" id="week"></div>
+            <!--days of the week to be dynamically filled with task-->
+        </div>
+     <div>         
+        <script src="script.js"></script>
+    </div> 
+    </body>
+</html>
