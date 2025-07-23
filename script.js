@@ -54,9 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fetch and render tasks from db.json
   function fetchTasks() {
-    fetch(`${apiUrl}`)
+    fetch(apiUrl)
       .then(res => res.json())
-      .then(data => data.forEach(task => renderTask(task)));
+      .then(data => {
+        if (Array.isArray(data)) {
+          data.forEach(task => renderTask(task));
+        } else {
+          console.error("Unexpected response:", data);
+        }
+      })
+      .catch(err => console.error("Fetch error:", err));
   }
 
   // Render a task into the appropriate day's list
