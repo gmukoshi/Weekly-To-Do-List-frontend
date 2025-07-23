@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', ()=> {
-  const apiUrl = 'http://localhost:3000/tasks';
+document.addEventListener('DOMContentLoaded', () => {
+  const apiUrl = 'https://weekly-to-do-list-backend.onrender.com/tasks';
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const weekDiv = document.getElementById('week');
   const taskInput = document.getElementById('taskInput');
@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
   });
 
   // Handle Add Activity button  
-  function addActivity () {
+  function addActivity() {
     const text = taskInput.value.trim();
     const day = daySelect.value;
-      
+
     if (text === '') {
       alert("Please enter an activity.");
       return;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
       completed: false
     };
 
-    fetch(apiUrl, {
+    fetch(`${apiUrl}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTask)
@@ -42,19 +42,19 @@ document.addEventListener('DOMContentLoaded', ()=> {
         renderTask(task);
         taskInput.value = '';
       });
-  };
+  }
 
   // Add support for Enter key
   taskInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       e.preventDefault(); // prevent form-like behavior
-      addActivity();      //  call the add function
+      addActivity();      // call the add function
     }
   });
 
   // Fetch and render tasks from db.json
   function fetchTasks() {
-    fetch(apiUrl)
+    fetch(`${apiUrl}`)
       .then(res => res.json())
       .then(data => data.forEach(task => renderTask(task)));
   }
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   // Render a task into the appropriate day's list
   function renderTask(task) {
     const list = document.getElementById(`${task.day}-list`);
-        if (!list) return;
+    if (!list) return;
 
     const li = document.createElement('li');
     if (task.completed) li.classList.add('completed');
@@ -101,9 +101,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     li.appendChild(deleteBtn);
     list.appendChild(li);
   }
+
   // Initial load
   window.addActivity = addActivity;
   fetchTasks();
 });
-
-

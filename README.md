@@ -14,7 +14,12 @@ In this mini project ,we have come up with a To-do list App that is dynamic and 
 
 ### Live link
 
-https://weekly-to-do-list4.onrender.com
+- App  deployment to  github (HTTML,CSS,Javascript)
+https://gmukoshi.github.io/Weekly-To-Do-List-frontend/ 
+
+- Backend deployment to Render (db.json,server.js,package.json)
+https://weekly-to-do-list-backend.onrender.com/tasks
+
 
 ## Installation
 1. Clone the repo  
@@ -26,9 +31,9 @@ https://weekly-to-do-list4.onrender.com
 3. Run the project ( use code . to access VS code)
 
 ## Usage
-- A program that helps one to improve Focus and Clarity through better organization of his day.
-- Program that Boosts Productivity ,since one is able to handle one task at a time .
-- A program that Builds Accountability,since one is able to determine if he completed a task or not.
+- Start the server on backend repo (json-server --watch db.json --port 3000) -gmukoshi@IMBIAKHA:~/Development/code/phase-1/Weekly-To-Do-List/backend
+- Click the frontend link above to direct you to the Application
+- add scheduled tasks on the respective day of the week ,strike through completed taks and delete tasks that were erroneously placed.
 
 ## Features
 - Implementing HTML,CSS-styling
